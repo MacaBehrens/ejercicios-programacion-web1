@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 15 - Adivinar un número (1 a 100)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 15 - Adivinar un número (1 a 100)</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que explica el juego -->
+    <div>Intentá adivinar el número secreto (entre 1 y 100)</div>
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputIntentoNumero">Tu intento</label>
+    <!-- Campo donde el usuario escribe un número -->
+    <input id="inputIntentoNumero" type="number" min="1" max="100">
+
+    <!-- Botón para probar si el número es correcto -->
+    <button id="botonProbarNumero">Probar</button>
+
+    <!-- Botón para reiniciar el juego -->
+    <button id="botonReiniciarJuego">Reiniciar juego</button>
+
+    <!-- donde se mostrará el resultado -->
+    <div id="areaResultadoJuego"></div>
+  
+  </div>
+
+  <script>
+    // Numero secreto (se genera aleatoriamente entre 1 y 100) - variable global
+    let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+    // Contador de intentos - variable global
+    let intentos = 0;
+
+    // Función que muestra un mensaje en pantalla
+    function mostrarMensajeJuego(m) {
+      document.getElementById("areaResultadoJuego").innerText = m;
+    }
+
+    // Función que verifica el número ingresado por el usuario
+    function probarNumero() {
+      // Guardo el número que escribió el usuario
+      const v = Number(document.getElementById("inputIntentoNumero").value);
+
+      // Si no es válido o está fuera del rango, muestro aviso
+      if (!v || v < 1 || v > 100) { 
+        mostrarMensajeJuego("Ingresá un número entre 1 y 100."); 
+        return; 
+      }
+
+      // Sumo un intento
+      intentos++;
+
+      // Comparo el valor ingresado con el número secreto
+      if (v === numeroSecreto) {
+        mostrarMensajeJuego("¡Acertaste! El número era " + numeroSecreto + ". Intentos: " + intentos);
+      } else if (v < numeroSecreto) {
+        mostrarMensajeJuego("Más alto");
+      } else {
+        mostrarMensajeJuego("Más bajo");
+      }
+    }
+
+    // Función que reinicia el juego
+    function reiniciarJuego() {
+      numeroSecreto = Math.floor(Math.random() * 100) + 1; // Genero un nuevo número
+      intentos = 0; // Reinicio el contador
+      mostrarMensajeJuego("Juego reiniciado. Probá de nuevo."); // Aviso en pantalla
+      document.getElementById("inputIntentoNumero").value = ""; // Limpio el input
+    }
+
+    // Cuando se hace clic en "Probar", se ejecuta la función probarNumero
+    document.getElementById("botonProbarNumero").addEventListener("click", probarNumero);
+
+    // Cuando se hace clic en "Reiniciar juego", se ejecuta la función reiniciarJuego
+    document.getElementById("botonReiniciarJuego").addEventListener("click", reiniciarJuego);
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 13 - Buscar nombre en una lista</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 13 - Buscar nombre en una lista</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que muestra la lista disponible -->
+    <div>Lista: Elena, Matias, Pablo, German, Mariela, Ana</div>
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputNombreBusqueda">Nombre a buscar</label>
+    <!-- Campo donde el usuario escribe un nombre -->
+    <input id="inputNombreBusqueda" placeholder="Escribí un nombre">
+
+    <!-- Botón que al hacer clic busca el nombre -->
+    <button id="botonBuscarNombre">Buscar</button>
+
+    <!-- Lugar donde se mostrará el resultado -->
+    <div id="areaResultadoBusqueda"></div>
+  
+  </div>
+
+  <script>
+    // Lista de nombres (variable global)
+    const listaDeNombres = ["Elena", "Matias", "Pablo", "German", "Mariela", "Ana"];
+
+    // Función que busca si el nombre escrito está en la lista
+    function buscarNombre() {
+      // Guardo en una variable el nombre escrito por el usuario en minúsculas
+      const q = document.getElementById("inputNombreBusqueda").value.trim().toLowerCase();
+
+      // Reviso si el nombre está en la lista (comparando en minúsculas para que no importe mayúscula/minúscula)
+      const encontrado = listaDeNombres.some(n => n.toLowerCase() === q);
+
+      // Muestro el resultado en pantalla
+      document.getElementById("areaResultadoBusqueda").innerText = encontrado ? "Nombre encontrado." : "Nombre NO encontrado.";
+    }
+
+    // Cuando se hace clic en el botón, se ejecuta la función buscarNombre
+    document.getElementById("botonBuscarNombre").addEventListener("click", buscarNombre);
+  </script>
+</body>
+</html>

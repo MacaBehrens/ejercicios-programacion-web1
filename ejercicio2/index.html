@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 2 - Saludo personalizado con el nombre</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 2 - Saludo personalizado con el nombre</h1>
+
+  <!-- utilizo div class , agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- texto que acompaña al input -->
+    <label for="inputNombre">Escribí tu nombre</label>
+
+    <!--campo donde el usuario escribe su nombre-->
+    <input id="inputNombre" placeholder="Tu nombre">
+
+    <!-- elñ Botón que al hacer clic va a mostrar el saludo -->
+    <button id="botonMostrarSaludoPersonalizado">Saludar</button>
+
+    <!-- el contenedor donde se mostrará el resultado del saludo -->
+    <div id="areaResultadoSaludo"></div>
+  
+  </div>
+</body>
+
+   
+<script> // declaro una función global
+
+// Función que muestra un saludo usando el nombre escrito
+function saludarConNombre() {
+  // Guardo en una variable lo que el usuario escribió en el input
+  const nombre = document.getElementById("inputNombre").value.trim();
+
+  // Guardo en otra variable el lugar donde voy a mostrar el resultado
+  const area = document.getElementById("areaResultadoSaludo");
+
+  // Si el usuario escribió algo, saludo con su nombre
+  // Si no escribió nada, muestro un mensaje pidiendo que lo complete
+  area.innerText = nombre ? ("Hola, " + nombre + "!") : "Por favor, escribí tu nombre.";
+}
+
+// Cuando se hace clic en el botón, se ejecuta la función saludarConNombre
+document.getElementById("botonMostrarSaludoPersonalizado").addEventListener("click", saludarConNombre);
+
+  </script>
+</body>
+</html>

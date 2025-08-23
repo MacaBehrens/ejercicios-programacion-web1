@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 8 - Tabla de multiplicar (saltos de 2)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 8 - Tabla de multiplicar (saltos de 2)</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputBaseTabla">Número base</label>
+    <!-- Campo donde el usuario escribe el número base -->
+    <input id="inputBaseTabla" type="number">
+
+    <!-- Botón que al hacer clic genera la tabla -->
+    <button id="botonGenerarTablaMultiplicar">Generar tabla</button>
+
+    <!-- Lugar donde se mostrará la tabla de multiplicar -->
+    <div id="areaResultadoTabla"></div>
+  
+  </div>
+
+  <script>
+    // Función que genera la tabla de multiplicar en saltos de 2
+    function generarTablaMultiplicar() {
+      // Guardo en una variable el número base escrito por el usuario
+      const base = Number(document.getElementById("inputBaseTabla").value);
+
+      // Variable donde voy a ir guardando el texto de la tabla
+      let texto = "";
+
+      // Recorro los números del 0 al 20 de 2 en 2
+      for (let i = 0; i <= 20; i += 2) {
+        // Voy armando cada línea de la tabla y la sumo al texto
+        texto += base + " x " + i + " = " + (base * i) + "\n";
+      }
+
+      // Muestro la tabla completa en pantalla
+      document.getElementById("areaResultadoTabla").innerText = texto;
+    }
+
+    // Cuando se hace clic en el botón, se ejecuta la función generarTablaMultiplicar
+    document.getElementById("botonGenerarTablaMultiplicar").addEventListener("click", generarTablaMultiplicar);
+  </script>
+</body>
+</html>

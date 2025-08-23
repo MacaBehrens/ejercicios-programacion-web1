@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 7 - Verificar contraseñas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 7 - Verificar contraseñas</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al primer input -->
+    <label for="inputContrasena">Contraseña</label>
+    <!-- Campo donde el usuario escribe la contraseña -->
+    <input id="inputContrasena" type="password">
+
+    <!-- Texto que acompaña al segundo input -->
+    <label for="inputConfirmarContrasena">Confirmar contraseña</label>
+    <!-- Campo donde el usuario repite la contraseña -->
+    <input id="inputConfirmarContrasena" type="password">
+
+    <!-- Botón que al hacer clic va a verificar las contraseñas -->
+    <button id="botonVerificarContrasenas">Verificar</button>
+
+    <!-- Lugar donde se mostrará el resultado -->
+    <div id="areaResultadoContrasena"></div>
+  
+  </div>
+
+  <script>
+    // Función que revisa si las contraseñas son válidas y coinciden
+    function verificarContrasenas() {
+      // Guardo en una variable la primera contraseña
+      const a = document.getElementById("inputContrasena").value;
+
+      // Guardo en otra variable la segunda contraseña
+      const b = document.getElementById("inputConfirmarContrasena").value;
+
+      // Variable donde voy a guardar el mensaje a mostrar
+      let msg = "";
+
+      // Si alguna contraseña tiene menos de 8 caracteres
+      if (a.length < 8 || b.length < 8) msg = "La contraseña debe tener al menos 8 caracteres.";
+      // Si las contraseñas no son iguales
+      else if (a !== b) msg = "Las contraseñas NO coinciden.";
+      // Si tienen al menos 8 caracteres y son iguales
+      else msg = "¡Contraseña válida y coincide!";
+
+      // Muestro el mensaje en pantalla
+      document.getElementById("areaResultadoContrasena").innerText = msg;
+    }
+
+    // Cuando se hace clic en el botón, se ejecuta la función verificarContrasenas
+    document.getElementById("botonVerificarContrasenas").addEventListener("click", verificarContrasenas);
+  </script>
+</body>
+</html>

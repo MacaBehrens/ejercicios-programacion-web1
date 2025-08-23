@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 6 - Comparar dos números</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Ejercicio 6 - Comparar dos números</h1>
+
+  <div class="tarjeta">
+
+    <!-- Fila con los dos inputs -->
+    <div class="fila">
+      <div>
+        <!-- Texto que acompaña al primer input -->
+        <label for="inputPrimerNumeroComparacion">Primer número</label>
+        <!--Campo donde el usuario escribe el primer número -->
+        <input id="inputPrimerNumeroComparacion" type="number">
+      </div>
+      <div>
+        <!--Texto que acompaña al segundo input -->
+        <label for="inputSegundoNumeroComparacion">Segundo número</label>
+        <!-- Campo donde el usuario escribe el segundo número -->
+        <input id="inputSegundoNumeroComparacion" type="number">
+      </div>
+    </div>
+
+    <!-- Botón que al hacer clic va a comparar los números -->
+    <button id="botonCompararNumeros">Comparar</button>
+
+    <!-- Lugar donde se mostrará el resultado -->
+    <div id="areaResultadoComparacion"></div>
+  
+  </div>
+
+  <script>
+    // Funcion que compara los dos numeros y muestra cuál es mayor, menor o si son iguales
+    function compararNumeros() {
+      // Guardo en una variable el primer numero escrito por el usuario
+      const a = Number(document.getElementById("inputPrimerNumeroComparacion").value);
+
+      // Guardo en otra variable el segundo numero escrito por el usuario
+      const b = Number(document.getElementById("inputSegundoNumeroComparacion").value);
+
+      // Variable donde voy a guardar el mensaje del resultado
+      let msg = "";
+
+      // Si el primer número es mayor que el segundo
+      if (a > b) msg = "El primer número es MAYOR.";
+      // Si el primer número es menor que el segundo
+      else if (a < b) msg = "El primer número es MENOR.";
+      // Si ninguno es mayor ni menor, son iguales
+      else msg = "Ambos números son IGUALES.";
+
+      // Muestro el mensaje en pantalla
+      document.getElementById("areaResultadoComparacion").innerText = msg;
+    }
+    // Cuando se hace clic en el botón se ejecuta la función compararNumeros
+    document.getElementById("botonCompararNumeros").addEventListener("click", compararNumeros);
+  </script>
+</body>
+</html>
+

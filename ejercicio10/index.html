@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 10 - Lista con N elementos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Ejercicio 10 - Lista con N elementos</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputCantidadElementos">Cantidad </label>
+    <!-- Campo donde el usuario escribe cuántos elementos quiere -->
+    <input id="inputCantidadElementos" type="number" min="1">
+
+    <!-- Botón que al hacer clic genera la lista -->
+    <button id="botonGenerarLista">Generar lista</button>
+
+    <!-- Lista donde se mostrarán los elementos creados -->
+    <ul id="listaElementosGenerados"></ul>
+  
+  </div>
+
+  <script>
+    // Función que genera una lista con N elementos
+    function generarLista() {
+      // Guardo en una variable la cantidad de elementos que pidió el usuario
+      const n = Number(document.getElementById("inputCantidadElementos").value);
+
+      // Guardo en otra variable la lista donde voy a poner los elementos
+      const ul = document.getElementById("listaElementosGenerados");
+
+      // Limpio la lista por si ya había elementos anteriores
+      ul.innerHTML = "";
+
+      // Recorro desde 1 hasta N
+      for (let i = 1; i <= n; i++) {
+        // Creo un nuevo elemento de lista <li>
+        const li = document.createElement("li");
+
+        // Le pongo el texto "Elemento X"
+        li.innerText = "Elemento " + i;
+
+        // Agrego el <li> a la lista <ul>
+        ul.appendChild(li);
+      }
+    }
+    // Cuando se hace clic en el botón, se ejecuta la función generarLista
+    document.getElementById("botonGenerarLista").addEventListener("click", generarLista);
+  </script>
+</body>
+</html>

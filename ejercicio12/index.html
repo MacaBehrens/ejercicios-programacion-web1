@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 12 - Validar email (formato simple)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 12 - Validar email (formato simple)</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputEmail">Email</label>
+    <!-- Campo donde el usuario escribe un email -->
+    <input id="inputEmail" placeholder="email@dominio.com">
+
+    <!-- Botón que al hacer clic valida el email -->
+    <button id="botonValidarEmail">Validar</button>
+
+    <!-- Lugar donde se mostrará el resultado -->
+    <div id="areaResultadoEmail"></div>
+  
+  </div>
+
+  <script>
+    // Función que valida si el email escrito tiene un formato básico correcto
+    function validarEmail() {
+      // Guardo el valor escrito y le saco espacios al principio y al final
+      const s = document.getElementById("inputEmail").value.trim();
+
+      // Reviso si tiene el símbolo "@"
+      const tieneArroba = s.includes("@");
+
+      // Divido el email en dos partes: antes y después del "@"
+      const partes = s.split("@");
+
+      // Reviso que después del "@" exista algo y que tenga un punto
+      const tienePuntoLuego = tieneArroba && partes[1] && partes[1].includes(".");
+
+      // Reviso que no tenga espacios en blanco
+      const sinEspacios = !s.includes(" ");
+
+      // El email es válido solo si cumple todas las condiciones
+      const ok = tieneArroba && tienePuntoLuego && sinEspacios;
+
+      // Muestro el resultado en pantalla
+      document.getElementById("areaResultadoEmail").innerText = ok ? "Formato de email válido." : "Formato de email NO válido.";
+    }
+
+    // Cuando se hace clic en el botón, se ejecuta la función validarEmail
+    document.getElementById("botonValidarEmail").addEventListener("click", validarEmail);
+  </script>
+</body>
+</html>
+

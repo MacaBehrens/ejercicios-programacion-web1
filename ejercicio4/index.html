@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 4 - Verificar mayoría de edad</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 4 - Verificar mayoría de edad</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputEdad">Tu edad</label>
+
+    <!-- Campo donde el usuario escribe su edad -->
+    <input id="inputEdad" type="number" min="0">
+
+    <!-- Botón que al hacer clic va a verificar la edad -->
+    <button id="botonVerificarMayorDeEdad">Verificar</button>
+
+    <!-- Lugar donde se mostrará el resultado -->
+    <div id="areaResultadoEdad"></div>
+  
+  </div>
+
+  <script>
+    // Función que revisa si la edad ingresada es mayor o menor de 18
+    function verificarMayorDeEdad() {
+      // Guardo en una variable la edad que escribió el usuario
+      const edad = Number(document.getElementById("inputEdad").value);
+
+      // Si la edad es 18 o más, muestro que es mayor de edad
+      // Si es menor a 18, muestro que es menor de edad
+      document.getElementById("areaResultadoEdad").innerText = 
+        (edad >= 18) ? "Sos mayor de edad." : "Sos menor de edad.";
+    }
+
+    // Cuando se hace clic en el botón, se ejecuta la función verificarMayorDeEdad
+    document.getElementById("botonVerificarMayorDeEdad").addEventListener("click", verificarMayorDeEdad);
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 5 - Par o impar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 5 - Par o impar</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputNumeroParImpar">Número</label>
+
+    <!-- Campo donde el usuario escribe un número -->
+    <input id="inputNumeroParImpar" type="number">
+
+    <!-- Botón que al hacer clic va a comprobar si el número es par o impar -->
+    <button id="botonComprobarParidad">¿Par o impar?</button>
+
+    <!-- Lugar donde se mostrará el resultado -->
+    <div id="areaResultadoParidad"></div>
+  
+  </div>
+
+  <script>
+    // Función que revisa si el número ingresado es par o impar
+    function comprobarParidad() {
+      // Guardo en una variable el número que escribió el usuario
+      const n = Number(document.getElementById("inputNumeroParImpar").value);
+
+      // Si el número dividido por 2 da resto 0, es par. Si no, es impar
+      document.getElementById("areaResultadoParidad").innerText = 
+        (n % 2 === 0) ? "El número es PAR." : "El número es IMPAR.";
+    }
+
+    // Cuando se hace clic en el botón, se ejecuta la función comprobarParidad
+    document.getElementById("botonComprobarParidad").addEventListener("click", comprobarParidad);
+  </script>
+</body>
+</html>

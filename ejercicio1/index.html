@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1 - Mostrar ¡Hola, Mundo!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Ejercicio 1 - Mostrar ¡Hola, Mundo!</h1>
+    <!-- Contenedor estilizado mediante clase -->
+<div class="tarjeta">
+
+  <!-- Pongo un botón para hacer clic y un área para mostrar el mensaje -->
+    <!-- Botón que ejecuta la acción asociada -->
+<button id="botonMostrarHolaMundo">Presionarme para mostrar ¡Hola, Mundo!</button>
+    <!-- Contenedor identificado para resultados/agrupación -->
+<div id="areaResultadoHolaMundo"></div>
+  
+</div>
+    <!-- Lógica JavaScript del ejercicio -->
+ <script>
+    
+  // Creo una función que escribe "¡Hola, Mundo!" en el área de resultado.
+// Función global: disponible en el ámbito del documento
+// Declaración de función. 
+  function mostrarHolaMundo() {
+// Variable local (solo visible dentro de esta función/bloque)
+    const area = document.getElementById("areaResultadoHolaMundo");
+// Referencia a un elemento del DOM
+// Salida del resultado hacia la interfaz
+    area.innerText = "¡Hola, Mundo!";
+  }
+
+  // Conecto el botón con mi función usando addEventListener (cuando hago clic).
+// Variable global
+  const boton = document.getElementById("botonMostrarHolaMundo");
+// Referencia a un elemento del DOM
+// Registro de escucha de eventos para interacción del usuario
+  boton.addEventListener("click", mostrarHolaMundo);
+  
+  </script>
+</body>
+</html>

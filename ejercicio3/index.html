@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3 - Sumar dos números</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 3 - Sumar dos números</h1>
+
+  <div class="tarjeta">
+
+    <!-- Fila que contiene los dos inputs -->
+    <div class="fila">
+      <div>
+        <!-- Texto que acompaña al primer input -->
+        <label for="inputNumeroUno">Primer número</label>
+        <!-- Campo donde el usuario escribe el primer número -->
+        <input id="inputNumeroUno" type="number">
+      </div>
+      <div>
+        <!-- Texto que acompaña al segundo input -->
+        <label for="inputNumeroDos">Segundo número</label>
+        <!-- Campo donde el usuario escribe el segundo número -->
+        <input id="inputNumeroDos" type="number">
+      </div>
+    </div>
+
+    <!-- Botón que al hacer clic va a realizar la suma -->
+    <button id="botonSumarNumeros">Sumar</button>
+
+    <!-- Contenedor donde se mostrará el resultado de la suma -->
+    <div id="areaResultadoSuma"></div>
+  
+  </div>
+
+  <script>
+    // Función que toma los dos números y muestra la suma
+    function sumarDosNumeros() {
+      // Guardo en una variable el primer número escrito por el usuario
+      const a = Number(document.getElementById("inputNumeroUno").value);
+
+      // Guardo en otra variable el segundo número escrito por el usuario
+      const b = Number(document.getElementById("inputNumeroDos").value);
+
+      // Muestro el resultado de la suma en el lugar indicado
+      document.getElementById("areaResultadoSuma").innerText = "Resultado: " + (a + b);
+    }
+    // Cuando se hace clic en el botón "Sumar", se ejecuta la función sumarDosNumeros
+    document.getElementById("botonSumarNumeros").addEventListener("click", sumarDosNumeros);
+  </script>
+</body>
+</html>

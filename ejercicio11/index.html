@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 11 - Celsius a Fahrenheit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 11 - Celsius a Fahrenheit</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputCelsius">Grados Celsius</label>
+    <!-- Campo donde el usuario escribe los grados en Celsius -->
+    <input id="inputCelsius" type="number">
+
+    <!-- Botón que al hacer clic convierte a Fahrenheit -->
+    <button id="botonConvertirAFahrenheit">Convertir</button>
+
+    <!-- Lugar donde se mostrará el resultado -->
+    <div id="areaResultadoConversion"></div>
+  
+  </div>
+
+  <script>
+    // Función que convierte de Celsius a Fahrenheit
+    function convertirCelsiusAFahrenheit() {
+      // Guardo en una variable los grados Celsius escritos por el usuario
+      const c = Number(document.getElementById("inputCelsius").value);
+
+      // Calculo el valor en Fahrenheit usando la fórmula (C * 9/5) + 32
+      const f = (c * 9/5) + 32;
+
+      // Muestro el resultado en pantalla con 2 decimales
+      document.getElementById("areaResultadoConversion").innerText = c + " °C = " + f.toFixed(2) + " °F";
+    }
+
+    // Cuando se hace clic en el botón, se ejecuta la función convertirCelsiusAFahrenheit
+    document.getElementById("botonConvertirAFahrenheit").addEventListener("click", convertirCelsiusAFahrenheit);
+  </script>
+</body>
+</html>

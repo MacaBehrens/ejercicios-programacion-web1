@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 14 - Añadir notas y calcular promedio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título de la página -->
+  <h1>Ejercicio 14 - Añadir notas y calcular promedio</h1>
+
+  <!-- Caja que agrupa todos los elementos -->
+  <div class="tarjeta">
+
+    <!-- Texto que acompaña al input -->
+    <label for="inputNotaNueva">Nueva nota (0 a 10)</label>
+    <!-- Campo donde el usuario escribe una nota -->
+    <input id="inputNotaNueva" type="number" step="0.01" min="0" max="10">
+
+    <!-- Botón que al hacer clic agrega una nota -->
+    <button id="botonAgregarNota">Agregar nota</button>
+
+    <!-- Botón que al hacer clic calcula el promedio -->
+    <button id="botonCalcularPromedio">Calcular promedio</button>
+
+    <!-- Lista donde se mostrarán las notas ingresadas -->
+    <ul id="listaNotasIngresadas"></ul>
+
+    <!-- Lugar donde se mostrará el promedio -->
+    <div id="areaResultadoPromedio"></div>
+  
+  </div>
+
+  <script>
+    // Array donde voy a guardar todas las notas (variable global)
+    const notas = [];
+
+    // Función que agrega una nueva nota a la lista
+    function agregarNota() {
+      // Guardo la nota que escribió el usuario y la convierto a número
+      const v = Number(document.getElementById("inputNotaNueva").value);
+
+      // Si el valor es un número válido
+      if (!isNaN(v)) {
+        // Agrego la nota al array de notas
+        notas.push(v);
+
+        // Creo un nuevo elemento <li> para mostrar la nota en pantalla
+        const li = document.createElement("li");
+        li.innerText = "Nota: " + v;
+
+        // Lo agrego a la lista de notas ingresadas
+        document.getElementById("listaNotasIngresadas").appendChild(li);
+
+        // Limpio el input para que quede listo para la próxima nota
+        document.getElementById("inputNotaNueva").value = "";
+      }
+    }
+
+    // Función que calcula el promedio de todas las notas
+    function calcularPromedio() {
+      // Guardo en una variable el área donde voy a mostrar el resultado
+      const area = document.getElementById("areaResultadoPromedio");
+
+      // Si no hay notas cargadas, aviso y salgo de la función
+      if (notas.length === 0) { 
+        area.innerText = "No hay notas cargadas."; 
+        return; 
+      }
+
+      // Sumo todas las notas usando reduce
+      const suma = notas.reduce((acc, n) => acc + n, 0);
+
+      // Calculo el promedio dividiendo la suma por la cantidad de notas
+      const prom = suma / notas.length;
+
+      // Muestro el resultado en pantalla con 2 decimales
+      area.innerText = "Promedio: " + prom.toFixed(2) + " (con " + notas.length + " notas)";
+    }
+
+    // Cuando se hace clic en el botón "Agregar nota", se ejecuta la función agregarNota
+    document.getElementById("botonAgregarNota").addEventListener("click", agregarNota);
+
+    // Cuando se hace clic en el botón "Calcular promedio", se ejecuta la función calcularPromedio
+    document.getElementById("botonCalcularPromedio").addEventListener("click", calcularPromedio);
+  </script>
+</body>
+</html>

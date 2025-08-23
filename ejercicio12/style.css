@@ -1,0 +1,83 @@
+
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
+  margin: 0;
+  padding: 1.25rem;               /* 20px aprox */
+  font-family: system-ui, Arial, sans-serif;
+  color: #333;                     /* Gris oscuro */
+  background: #f7f6f4;             /* Beige muy claro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  margin: 0 0 1rem 0;
+  color: #1d726a;                  /* Gris verdoso */
+  text-align: center;
+}
+
+/* Tarjeta simple para el contenido */
+main, .tarjeta {
+  width: min(92%, 720px);
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* Controles */
+label { display:block; margin-top: 0.5rem; font-weight: 600; }
+input, button {
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+}
+input { width: 100%; max-width: 420px; }
+
+button {
+  background: #00bfa6;            /* Turquesa */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+button:hover { filter: brightness(0.95); }
+
+/* Áreas de resultado */
+#areaResultadoHolaMundo,
+#areaResultadoSaludo,
+#areaResultadoSuma,
+#areaResultadoEdad,
+#areaResultadoParidad,
+#areaResultadoComparacion,
+#areaResultadoContrasena,
+#areaResultadoTabla,
+#areaResultadoContador,
+#areaResultadoPromedio,
+#areaResultadoConversion,
+#areaResultadoEmail,
+#areaResultadoBusqueda,
+#areaResultadoJuego,
+#listaElementosGenerados,
+#listaNotasIngresadas {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #eef8f6;            /* Turquesa MUY suave */
+  border: 1px solid #bfe9e1;      /* Borde suave */
+  border-radius: 0.5rem;
+}
+
+/* Filas responsivas (si hay dos inputs uno al lado del otro) */
+.fila { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.fila > * { flex: 1 1 220px; }
+
+/* En pantallas chicas todo se apila solo por el flex-wrap */
+@media (max-width: 600px) {
+  body { padding: 1rem; }
+}
